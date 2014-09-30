@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+	<!-- <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"> 
+		<property name="locations"> <value>classpath:database.properties</value> 
+		</property> </bean> -->
+
+	<!-- <bean class="org.jasypt.spring.properties.EncryptablePropertyPlaceholderConfigurer"> 
+		<constructor-arg> <bean class="org.jasypt.encryption.pbe.StandardPBEStringEncryptor"> 
+		<property name="config"> <bean class="org.jasypt.encryption.pbe.config.EnvironmentStringPBEConfig"> 
+		<property name="algorithm" value="PBEWithMD5AndDES" /> <property name="passwordEnvName" 
+		value="APP_ENCRYPTION_PASSWORD" /> </bean> </property> </bean> </constructor-arg> 
+		<property name="locations"> <list> <value>classpath:database.properties</value> 
+		</list> </property> </bean> -->
+
+	<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
+		<property name="driverClassName" value="${jdbc.driverClassName}" /> <property 
+		name="url" value="${jdbc.url}" /> <property name="username" value="${jdbc.username}" 
+		/> <property name="password" value="${jdbc.password}" /> </bean> -->
+
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://127.0.0.1:8889/medicine_alarm" />
+		<property name="username" value="root" />
+		<property name="password" value="" />
+	</bean>
+
+
+	<bean id="patientDAO" class="com.medicinealarm.dao.Impl.PatientDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="medicineDAO" class="com.medicinealarm.dao.Impl.MedicineDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="medicineTypeDAO" class="com.medicinealarm.dao.Impl.MedicineTypeDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="recordsDAO" class="com.medicinealarm.dao.Impl.RecordsDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+</beans>

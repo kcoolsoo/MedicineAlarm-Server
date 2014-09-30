@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beansProjectDescription>
+	<version>1</version>
+	<pluginVersion><![CDATA[3.4.0.201310051539-RELEASE]]></pluginVersion>
+	<configSuffixes>
+		<configSuffix><![CDATA[xml]]></configSuffix>
+	</configSuffixes>
+	<enableImports><![CDATA[true]]></enableImports>
+	<configs>
+		<config>src/main/resources/Datasource.xml</config>
+		<config>src/main/resources/Module.xml</config>
+		<config>src/main/resources/security.xml</config>
+		<config>java:com.medicinealarm.config.SecurityConfig</config>
+		<config>java:com.medicinealarm.config.WebConfig</config>
+		<config>java:com.medicinealarm.config.ComponentConfig</config>
+	</configs>
+	<configSets>
+	</configSets>
+</beansProjectDescription>
